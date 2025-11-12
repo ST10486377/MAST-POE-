@@ -43,6 +43,32 @@ Expo Go App: For testing the app on mobile devices
 • Designed with core React Native components (TextInput, FlatList, TouchableOpacity).
 • Simple and elegant layout suitable for mobile screens.
 • Consistent padding, borders, and dark accent colour for visibility.
+
+# Changelog
+
+## - Final PoE changes
+### Added
+- Home screen now shows full menu and **average price per course** (Starters, Mains, Desserts, Beverages).
+- **Chef screen** added — move add/remove functionality here (chef can add menu items and remove them).
+- **Filter screen** added — guests can filter menu items by course.
+
+### Changed / Refactor
+- App split into multiple files for clarity:
+  - `App.tsx` — navigation container and stack.
+  - `context/MenuContext.tsx` — shared menu state (menu items array).
+  - `screens/HomeScreen.tsx`, `screens/ChefScreen.tsx`, `screens/FilterScreen.tsx` — screens.
+  - `components/MenuCard.tsx` — reusable menu item card.
+- Menu data is saved in a centralized array inside `MenuContext` (single source of truth).
+- Removed add form from home page; chef adds items on Chef screen only.
+
+### Fixed
+- Ensure remove action updates the central array and affects Home and Filter screens immediately.
+
+### Notes
+- Persistence (async storage / server) not implemented — menu items live in memory for this PoE. Add persistence if required later.
+
+
+
 ## References 
 Danielsson, W., 2016. React Native application development. Linköpings universitet, Swedia, 10(4), p.10.
 Danielsson, W., 2016. React Native application development: A comparison between native Android and React Native.
